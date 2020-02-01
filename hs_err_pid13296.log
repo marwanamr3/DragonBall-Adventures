@@ -1,0 +1,234 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32756 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:273), pid=13296, tid=14552
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_31-b13) (build 1.8.0_31-b13)
+# Java VM: Java HotSpot(TM) Client VM (25.31-b07 mixed mode windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x1489a000):  JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=14552, stack(0x14b80000,0x14bd0000)]
+
+Stack: [0x14b80000,0x14bd0000],  sp=0x14bcef3c,  free space=315k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x197b8b]
+V  [jvm.dll+0x190a28]
+V  [jvm.dll+0x81959]
+V  [jvm.dll+0x81bcf]
+V  [jvm.dll+0x81f2a]
+V  [jvm.dll+0x98774]
+V  [jvm.dll+0x286eea]
+V  [jvm.dll+0x286f50]
+V  [jvm.dll+0x2872aa]
+V  [jvm.dll+0x2873f1]
+V  [jvm.dll+0x28a58a]
+V  [jvm.dll+0x28a6d3]
+V  [jvm.dll+0x28ad07]
+V  [jvm.dll+0x28c2e3]
+V  [jvm.dll+0x271139]
+V  [jvm.dll+0x27120a]
+V  [jvm.dll+0x271378]
+V  [jvm.dll+0x2715f2]
+V  [jvm.dll+0x669ca]
+V  [jvm.dll+0x67089]
+V  [jvm.dll+0x169acc]
+V  [jvm.dll+0x16a35a]
+V  [jvm.dll+0x1af0a6]
+C  [msvcr100.dll+0x5c556]
+C  [msvcr100.dll+0x5c600]
+C  [KERNEL32.DLL+0x138f4]
+C  [ntdll.dll+0x65de3]
+C  [ntdll.dll+0x65dae]
+C  0x00000000
+
+
+Current CompileTask:
+C1:    379  114   !         java.util.concurrent.ConcurrentHashMap::transfer (832 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x14a1e800 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=5312, stack(0x155c0000,0x15610000)]
+  0x149c8000 JavaThread "AWT-Windows" daemon [_thread_in_native, id=11448, stack(0x14f50000,0x14fa0000)]
+  0x149c6400 JavaThread "AWT-Shutdown" [_thread_blocked, id=7448, stack(0x14ea0000,0x14ef0000)]
+  0x149c5c00 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=5300, stack(0x14e10000,0x14e60000)]
+  0x14895800 JavaThread "Service Thread" daemon [_thread_blocked, id=11276, stack(0x14c10000,0x14c60000)]
+=>0x1489a000 JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=14552, stack(0x14b80000,0x14bd0000)]
+  0x14899400 JavaThread "Attach Listener" daemon [_thread_blocked, id=8068, stack(0x14af0000,0x14b40000)]
+  0x14897400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=6056, stack(0x14a60000,0x14ab0000)]
+  0x14865000 JavaThread "Finalizer" daemon [_thread_blocked, id=11816, stack(0x043b0000,0x04400000)]
+  0x14860400 JavaThread "Reference Handler" daemon [_thread_blocked, id=4544, stack(0x00a90000,0x00ae0000)]
+  0x00cab800 JavaThread "main" [_thread_in_native, id=3952, stack(0x00970000,0x009c0000)]
+
+Other Threads:
+  0x00c7b800 VMThread [stack: 0x00a00000,0x00a50000] [id=17008]
+  0x14896800 WatcherThread [stack: 0x14ca0000,0x14cf0000] [id=17196]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 3606K [0x04400000, 0x04950000, 0x09950000)
+  eden space 4416K,  70% used [0x04400000, 0x04705878, 0x04850000)
+  from space 512K, 100% used [0x048d0000, 0x04950000, 0x04950000)
+  to   space 512K,   0% used [0x04850000, 0x04850000, 0x048d0000)
+ tenured generation   total 10944K, used 667K [0x09950000, 0x0a400000, 0x14400000)
+   the space 10944K,   6% used [0x09950000, 0x099f6dd0, 0x099f6e00, 0x0a400000)
+ Metaspace       used 6015K, capacity 6138K, committed 6144K, reserved 7552K
+
+Card table byte_map: [0x00e30000,0x00ec0000] byte_map_base: 0x00e0e000
+
+Polling page: 0x00b30000
+
+CodeCache: size=32768Kb used=802Kb max_used=802Kb free=31965Kb
+ bounds [0x023b0000, 0x02480000, 0x043b0000]
+ total_blobs=316 nmethods=113 adapters=135
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.252 Thread 0x1489a000 nmethod 109 0x024769c8 code [0x02476ac0, 0x02476b40]
+Event: 0.252 Thread 0x1489a000  110             java.util.Arrays::binarySearch0 (95 bytes)
+Event: 0.252 Thread 0x1489a000 nmethod 110 0x02476b88 code [0x02476ca0, 0x02476e08]
+Event: 0.252 Thread 0x1489a000  111             sun.java2d.loops.GraphicsPrimitiveMgr$2::compare (39 bytes)
+Event: 0.252 Thread 0x1489a000 nmethod 111 0x02476f88 code [0x02477090, 0x02477190]
+Event: 0.261 Thread 0x1489a000  112             java.lang.AbstractStringBuilder::append (50 bytes)
+Event: 0.261 Thread 0x1489a000 nmethod 112 0x024777c8 code [0x024778e0, 0x02477a24]
+Event: 0.262 Thread 0x1489a000  113             sun.awt.FontConfiguration::contains (24 bytes)
+Event: 0.262 Thread 0x1489a000 nmethod 113 0x02477b88 code [0x02477c80, 0x02477d50]
+Event: 0.264 Thread 0x1489a000  114   !         java.util.concurrent.ConcurrentHashMap::transfer (832 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.102 Thread 0x00cab800 Exception <a 'java/security/PrivilegedActionException'> (0x044a2690) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 0.102 Thread 0x00cab800 Exception <a 'java/security/PrivilegedActionException'> (0x044a2840) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 0.102 Thread 0x00cab800 Exception <a 'java/security/PrivilegedActionException'> (0x044a6220) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 0.102 Thread 0x00cab800 Exception <a 'java/security/PrivilegedActionException'> (0x044a63d0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+Event: 0.108 Thread 0x00cab800 Exception <a 'java/io/FileNotFoundException'> (0x044a8528) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jni.cpp, line 716]
+Event: 0.131 Thread 0x00cab800 Exception <a 'java/io/FileNotFoundException'> (0x044c40b0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\jni.cpp, line 716]
+Event: 0.143 Thread 0x00cab800 Exception <a 'java/lang/ClassNotFoundException': java/lang/Null> (0x044dcde8) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 202]
+Event: 0.157 Thread 0x00cab800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x04537aa8) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\methodHandles.cpp, line 1159]
+Event: 0.158 Thread 0x00cab800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x045455b8) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\methodHandles.cpp, line 1159]
+Event: 0.159 Thread 0x00cab800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x045484b0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u31\2394\hotspot\src\share\vm\prims\methodHandles.cpp, line 1159]
+
+Events (10 events):
+Event: 0.266 loading class java/lang/ProcessEnvironment$EntryComparator
+Event: 0.266 loading class java/lang/ProcessEnvironment$EntryComparator done
+Event: 0.266 loading class java/util/Collections$UnmodifiableMap
+Event: 0.266 loading class java/util/Collections$UnmodifiableMap done
+Event: 0.266 loading class java/util/TreeMap
+Event: 0.267 loading class java/util/NavigableMap
+Event: 0.267 loading class java/util/SortedMap
+Event: 0.267 loading class java/util/SortedMap done
+Event: 0.267 loading class java/util/NavigableMap done
+Event: 0.267 loading class java/util/TreeMap done
+
+
+Dynamic libraries:
+0x00020000 - 0x00050000 	E:\Programs\DBZ\Eclipse JavaFX\jdk\bin\javaw.exe
+0x77620000 - 0x7779b000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x77360000 - 0x77440000 	C:\WINDOWS\SYSTEM32\KERNEL32.DLL
+0x74480000 - 0x745fe000 	C:\WINDOWS\SYSTEM32\KERNELBASE.dll
+0x752d0000 - 0x7534b000 	C:\WINDOWS\SYSTEM32\ADVAPI32.dll
+0x75740000 - 0x757fe000 	C:\WINDOWS\SYSTEM32\msvcrt.dll
+0x75270000 - 0x752b4000 	C:\WINDOWS\SYSTEM32\sechost.dll
+0x743d0000 - 0x7447d000 	C:\WINDOWS\SYSTEM32\RPCRT4.dll
+0x74350000 - 0x7436e000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x74340000 - 0x7434a000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x75800000 - 0x75858000 	C:\WINDOWS\SYSTEM32\bcryptPrimitives.dll
+0x77460000 - 0x775a7000 	C:\WINDOWS\SYSTEM32\USER32.dll
+0x75120000 - 0x7526f000 	C:\WINDOWS\SYSTEM32\GDI32.dll
+0x6da70000 - 0x6dc7f000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.10586.0_none_d3c2e4e965da4528\COMCTL32.dll
+0x75350000 - 0x7550d000 	C:\WINDOWS\SYSTEM32\combase.dll
+0x74660000 - 0x7468b000 	C:\WINDOWS\SYSTEM32\IMM32.DLL
+0x6c110000 - 0x6c1cf000 	E:\Programs\DBZ\Eclipse JavaFX\jdk\jre\bin\msvcr100.dll
+0x67610000 - 0x679b4000 	E:\Programs\DBZ\Eclipse JavaFX\jdk\jre\bin\client\jvm.dll
+0x77450000 - 0x77456000 	C:\WINDOWS\SYSTEM32\PSAPI.DLL
+0x6d5a0000 - 0x6d5a8000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x6d9a0000 - 0x6d9c4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x746f0000 - 0x7474f000 	C:\WINDOWS\SYSTEM32\WS2_32.dll
+0x6d970000 - 0x6d993000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x75e20000 - 0x75e57000 	C:\WINDOWS\SYSTEM32\cfgmgr32.dll
+0x6d450000 - 0x6d45c000 	E:\Programs\DBZ\Eclipse JavaFX\jdk\jre\bin\verify.dll
+0x6c1f0000 - 0x6c211000 	E:\Programs\DBZ\Eclipse JavaFX\jdk\jre\bin\java.dll
+0x6bf10000 - 0x6bf23000 	E:\Programs\DBZ\Eclipse JavaFX\jdk\jre\bin\zip.dll
+0x75e60000 - 0x7725e000 	C:\WINDOWS\SYSTEM32\SHELL32.dll
+0x749b0000 - 0x74eaa000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x77310000 - 0x77355000 	C:\WINDOWS\SYSTEM32\shlwapi.dll
+0x752c0000 - 0x752cc000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x77260000 - 0x772ed000 	C:\WINDOWS\SYSTEM32\shcore.dll
+0x775d0000 - 0x77614000 	C:\WINDOWS\SYSTEM32\powrprof.dll
+0x75510000 - 0x7551f000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x61980000 - 0x61ac6000 	E:\Programs\DBZ\Eclipse JavaFX\jdk\jre\bin\awt.dll
+0x747a0000 - 0x74832000 	C:\WINDOWS\SYSTEM32\OLEAUT32.dll
+0x736d0000 - 0x73762000 	C:\WINDOWS\system32\apphelp.dll
+0x73060000 - 0x7307d000 	C:\WINDOWS\system32\DWMAPI.DLL
+0x73310000 - 0x73385000 	C:\WINDOWS\system32\uxtheme.dll
+0x758f0000 - 0x75a0f000 	C:\WINDOWS\SYSTEM32\MSCTF.dll
+0x74860000 - 0x7494b000 	C:\WINDOWS\SYSTEM32\ole32.dll
+0x68550000 - 0x6871b000 	C:\WINDOWS\system32\d3d9.dll
+0x6bf90000 - 0x6c089000 	C:\WINDOWS\SYSTEM32\nvumdshim.dll
+0x75a10000 - 0x75e1b000 	C:\WINDOWS\SYSTEM32\SETUPAPI.dll
+0x6bf60000 - 0x6bf8b000 	C:\WINDOWS\system32\nvinit.dll
+0x73f40000 - 0x73f48000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00c90000 - 0x00c96000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\_etoured.dll
+0x6bf30000 - 0x6bf59000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\nvd3d9wrap.dll
+0x6be20000 - 0x6be3e000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\nvdxgiwrap.dll
+0x73e40000 - 0x73e62000 	C:\WINDOWS\SYSTEM32\DEVOBJ.dll
+0x74750000 - 0x74792000 	C:\WINDOWS\SYSTEM32\WINTRUST.dll
+0x74840000 - 0x7484e000 	C:\WINDOWS\SYSTEM32\MSASN1.dll
+0x75520000 - 0x75698000 	C:\WINDOWS\SYSTEM32\CRYPT32.dll
+0x5b1d0000 - 0x5d1a6000 	C:\WINDOWS\system32\igdumdim32.dll
+0x675d0000 - 0x67609000 	E:\Programs\DBZ\Eclipse JavaFX\jdk\jre\bin\fontmanager.dll
+0x6d660000 - 0x6d79f000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 
+java_command: dragonball.view.Race
+java_class_path (initial): E:\GUC\Semester 4\CS Game\Project\Dragonball Complete Game\DragonBall-M3\bin;E:\Programs\DBZ\Eclipse JavaFX\plugins\org.junit_4.11.0.v201303080030\junit.jar;E:\Programs\DBZ\Eclipse JavaFX\plugins\org.hamcrest.core_1.3.0.v201303031735.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\MATLAB\R2011a\runtime\win64;C:\Program Files\MATLAB\R2011a\bin
+USERNAME=Marwan Amr
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 69 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 3907864k(538272k free), swap 15966488k(280k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.31-b07) for windows-x86 JRE (1.8.0_31-b13), built on Dec 17 2014 20:46:12 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Sun May 01 16:05:50 2016
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
